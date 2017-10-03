@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GoFish", "GoFish\GoFish.csproj", "{AE3D453A-1ECB-4DC8-AD66-0CA4CD307228}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AE3D453A-1ECB-4DC8-AD66-0CA4CD307228}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE3D453A-1ECB-4DC8-AD66-0CA4CD307228}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE3D453A-1ECB-4DC8-AD66-0CA4CD307228}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE3D453A-1ECB-4DC8-AD66-0CA4CD307228}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48C46B55-191A-440A-9D64-B6F40551A77E}
+	EndGlobalSection
+EndGlobal
