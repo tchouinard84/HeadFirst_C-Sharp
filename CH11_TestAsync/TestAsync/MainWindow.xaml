@@ -1,0 +1,17 @@
+﻿<Window x:Name="window" x:Class="TestAsync.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestAsync"
+        mc:Ignorable="d"
+        Title="WPF and async" Height="150" Width="200" ResizeMode="CanResizeWithGrip">
+    <Grid>
+        <StackPanel x:Name="windowContents">
+            <CheckBox x:Name="useAwaitAsync" IsChecked="True" Content="Use await/async" Margin="5" />
+            <Button x:Name="countButton" Content="Start counting" HorizontalAlignment="Left" Click="OnClickCountButton" Margin="5" />
+            <TextBlock x:Name="progress" HorizontalAlignment="Left" Margin="5" />
+            <Button x:Name="colorButton" Content="Change Color" HorizontalAlignment="Center" Click="OnClickColorButton" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>
