@@ -13,5 +13,13 @@ namespace GuySerializer
 
         [DataMember]
         public decimal Cash { get; private set; }
+
+        [DataMember(Name = "MyCard")]
+        public Card TrumpCard { get; set; }
+
+        public override string ToString()
+        {
+            return $"My name is {Name}, I'm {Age}, I have {Cash} bucks, and my trump card is {TrumpCard}";
+        }
     }
 }
