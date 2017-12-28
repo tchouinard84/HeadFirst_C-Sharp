@@ -5,6 +5,14 @@ namespace GuySerializer
     [DataContract(Namespace = "HeadFirst_CSharp/CH11")]
     public class Guy
     {
+        public Guy(string name, int age, decimal cash)
+        {
+            Name = name;
+            Age = age;
+            Cash = cash;
+            TrumpCard = Card.RandomCard();
+        }
+
         [DataMember]
         public string Name { get; private set; }
 

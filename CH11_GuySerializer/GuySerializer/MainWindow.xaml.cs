@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace GuySerializer
 {
@@ -20,9 +7,33 @@ namespace GuySerializer
     /// </summary>
     public partial class MainWindow : Window
     {
+        private GuyManager guyManager;
+
         public MainWindow()
         {
             InitializeComponent();
+
+            guyManager = FindResource("guyManager") as GuyManager;
+        }
+
+        private void WriteJoe_OnClick(object sender, RoutedEventArgs e)
+        {
+            guyManager.WriteGuy(guyManager.Joe);
+        }
+
+        private void WriteBob_OnClick(object sender, RoutedEventArgs e)
+        {
+            guyManager.WriteGuy(guyManager.Bob);
+        }
+
+        private void WriteEd_OnClick(object sender, RoutedEventArgs e)
+        {
+            guyManager.WriteGuy(guyManager.Ed);
+        }
+
+        private void ReadNewGuy_OnClick(object sender, RoutedEventArgs e)
+        {
+            guyManager.ReadGuy();
         }
     }
 }
