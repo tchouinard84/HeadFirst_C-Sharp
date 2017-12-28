@@ -13,12 +13,9 @@ namespace GuySerializer
         public Guy NewGuy { get; set; }
 
         public string GuyFile { get; set; }
-
-        public void ReadGuy()
+        public void ReadGuy(string fileName)
         {
-            if (string.IsNullOrEmpty(GuyFile)) { return; }
-
-            using (Stream inputStream = File.OpenRead(GuyFile))
+            using (Stream inputStream = File.OpenRead(fileName))
             {
                 var serializer = new DataContractSerializer(typeof(Guy));
                 NewGuy = serializer.ReadObject(inputStream) as Guy;
@@ -27,9 +24,9 @@ namespace GuySerializer
             OnPropertyChanged("NewGuy");
         }
 
-        public void WriteGuy(Guy guyToWrite)
+        public void WriteGuy(Guy guyToWrite, string filePath)
         {
-            GuyFile = Path.GetFullPath(guyToWrite.Name + ".xml");
+            GuyFile = filePath;
 
             if (File.Exists(GuyFile)) { File.Delete(GuyFile); }
 
