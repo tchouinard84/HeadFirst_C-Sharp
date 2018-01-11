@@ -1,4 +1,6 @@
-﻿namespace JimmysComics.DataModel
+﻿using System.Windows.Media.Imaging;
+
+namespace JimmysComics.DataModel
 {
     public class Comic
     {
@@ -8,6 +10,6 @@
         public string CoverPrice { get; set; }
         public string Synopsis { get; set; }
         public string MainVillain { get; set; }
-        public string Cover { get; set; }
+        public BitmapImage Cover { get; set; }
     }
 }
