@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:JimmysComics"
         xmlns:dataModel="clr-namespace:JimmysComics.DataModel"
         mc:Ignorable="d"
-        Title="Jimmy's Comics" Height="350" Width="525">
+        Title="Jimmy's Comics" Height="900" Width="1000">
     
     <Window.Resources>
         <dataModel:ComicQueryManager x:Key="comicQueryManager" />
@@ -14,10 +14,14 @@
 
     <Grid DataContext="{StaticResource ResourceKey=comicQueryManager}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*" />
             <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
-        <ListView SelectionMode="Single" ItemsSource="{Binding AvailableQueries}" SelectionChanged="ListView_SelectionChanged">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="3*"/>
+        </Grid.RowDefinitions>
+        <ListView SelectionMode="Single" ItemsSource="{Binding AvailableQueries}" SelectionChanged="OnSelectQuery">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid Height="55" Margin="6">
@@ -37,8 +41,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-        
-        <ListView Grid.Column="1" SelectionMode="Single" ItemsSource="{Binding CurrentQueryResults}">
+
+        <ListView Grid.Row="0" Grid.Column="1" SelectionMode="Single" ItemsSource="{Binding CurrentQueryResults}" SelectionChanged="OnSelectCurrentQuery">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal">
@@ -50,5 +54,22 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Image x:Name="CoverImage" Grid.Row="1" Grid.Column="0" Margin="0,0,20,0" Stretch="UniformToFill" Width="326" Height="500" VerticalAlignment="Top"/>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock Text="Name"/>
+            <TextBlock x:Name="ViewName"/>
+            <TextBlock Text="Issue"/>
+            <TextBlock x:Name="ViewIssue"/>
+            <TextBlock Text="Year"/>
+            <TextBlock x:Name="ViewYear"/>
+            <TextBlock Text="Cover Price"/>
+            <TextBlock x:Name="ViewCoverPrice"/>
+            <TextBlock Text="Main Villian"/>
+            <TextBlock x:Name="ViewMainVillian"/>
+            <TextBlock Text="Synopsis"/>
+            <TextBlock x:Name="ViewSynopsis"/>
+        </StackPanel>
     </Grid>
 </Window>

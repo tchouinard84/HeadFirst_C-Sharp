@@ -11,14 +11,14 @@ namespace JimmysComics.DataModel
     {
         public ObservableCollection<ComicQuery> AvailableQueries { get; private set; }
 
-        public ObservableCollection<object> CurrentQueryResults { get; private set; }
+        public ObservableCollection<dynamic> CurrentQueryResults { get; private set; }
 
         public string Title { get; set; }
 
         public ComicQueryManager()
         {
             UpdateAvailableQueries();
-            CurrentQueryResults = new ObservableCollection<object>();
+            CurrentQueryResults = new ObservableCollection<dynamic>();
         }
 
         private void UpdateAvailableQueries()
