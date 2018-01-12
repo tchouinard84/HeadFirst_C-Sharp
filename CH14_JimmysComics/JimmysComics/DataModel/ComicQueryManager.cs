@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Windows.Media.Imaging;
 
@@ -70,7 +71,7 @@ namespace JimmysComics.DataModel
         {
             try
             {
-                var uri = new Uri(imageFilename, UriKind.RelativeOrAbsolute);
+                var uri = new Uri(@"..\Assets\" + imageFilename, UriKind.RelativeOrAbsolute);
                 return new BitmapImage(uri);
             }
             catch (System.IO.IOException)
