@@ -23,7 +23,8 @@ namespace BaseBall
         public void PlayBall()
         {
             var ballEventArgs = new BallEventArgs(Trajectory, Distance);
-            ball.OnBallInPlay(ballEventArgs);
+            var bat = ball.GetNewBat();
+            bat.HitTheBall(ballEventArgs);
         }
     }
 }
