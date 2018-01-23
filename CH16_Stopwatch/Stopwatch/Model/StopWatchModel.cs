@@ -7,7 +7,11 @@ namespace Stopwatch.Model
         private DateTime? _started;
         private TimeSpan? _previousElapsedTime;
 
+        public event EventHandler<LapEventArgs> LapTimeUpdated; 
+
         public bool Running => _started.HasValue;
+
+        public TimeSpan? LapTime { get; private set; }
 
         public TimeSpan? Elapsed
         {
@@ -42,6 +46,20 @@ namespace Stopwatch.Model
         {
             _previousElapsedTime = null;
             _started = null;
+            LapTime = null;
+        }
+
+        public void Lap()
+        {
+            LapTime = Elapsed;
+            OnLapTimeUpdated(LapTime);
+        }
+
+        private void OnLapTimeUpdated(TimeSpan? lapTime)
+        {
+            var lapTimeUpdated = LapTimeUpdated;
+            if (lapTimeUpdated == null) { return; }
+            lapTimeUpdated(this, new LapEventArgs(lapTime));
         }
 
         private TimeSpan CalculateTimeElapsedSinceStarted()
