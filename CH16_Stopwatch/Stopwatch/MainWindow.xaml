@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stopwatch"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="150" Width="250"
+        xmlns:view="clr-namespace:Stopwatch.View">
     <Grid>
-        
+        <view:BasicStopwatch Margin="5"/>
     </Grid>
 </Window>
