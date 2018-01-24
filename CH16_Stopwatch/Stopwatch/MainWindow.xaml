@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Stopwatch"
         mc:Ignorable="d"
-        Title="Stopwatch" Height="150" Width="250"
+        Title="Stopwatch" Height="200" Width="300"
         xmlns:view="clr-namespace:Stopwatch.View">
     <Grid>
         <view:BasicStopwatch Margin="5"/>
