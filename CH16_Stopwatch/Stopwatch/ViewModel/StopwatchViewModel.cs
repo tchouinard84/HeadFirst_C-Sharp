@@ -13,6 +13,7 @@ namespace Stopwatch.ViewModel
         private int _lastHours;
         private int _lastMinutes;
         private decimal _lastSeconds;
+        private bool _lastRunning;
 
         private int _lastLapHours;
         private int _lastLapMinutes;
@@ -70,30 +71,21 @@ namespace Stopwatch.ViewModel
 
         private void TimerTick(object sender, EventArgs e)
         {
-            MaybePropertyChanged(Hours, ref _lastHours, "Hours");
-            MaybePropertyChanged(Minutes, ref _lastMinutes, "Minutes");
-            MaybePropertyChanged(Seconds, ref _lastSeconds, "Seconds");
+            if (_lastRunning != Running) { FirePropertyChanged(Running, ref _lastRunning, "Running"); }
+            if (_lastHours != Hours)     { FirePropertyChanged(Hours, ref _lastHours, "Hours"); }
+            if (_lastMinutes != Minutes) { FirePropertyChanged(Minutes, ref _lastMinutes, "Minutes"); }
+            if (_lastSeconds != Seconds) { FirePropertyChanged(Seconds, ref _lastSeconds, "Seconds"); }
         }
 
         private void LapTimeUpdatedEventHandler(object sender, LapEventArgs e)
         {
-            MaybePropertyChanged(LapHours, ref _lastLapHours, "LapHours");
-            MaybePropertyChanged(LapMinutes, ref _lastLapMinutes, "LapMinutes");
-            MaybePropertyChanged(LapSeconds, ref _lastLapSeconds, "LapSeconds");
+            if (_lastLapHours != LapHours) { FirePropertyChanged(LapHours, ref _lastLapHours, "LapHours"); }
+            if (_lastLapMinutes != LapMinutes) { FirePropertyChanged(LapMinutes, ref _lastLapMinutes, "LapMinutes"); }
+            if (_lastLapSeconds != LapSeconds) { FirePropertyChanged(LapSeconds, ref _lastLapSeconds, "LapSeconds"); }
         }
 
-        private void MaybePropertyChanged(int property, ref int previous, string propertyName)
+        private void FirePropertyChanged<T>(T property, ref T previous, string propertyName)
         {
-            if (previous == property) { return; }
-
-            previous = property;
-            OnPropertyChanged(propertyName);
-        }
-
-        private void MaybePropertyChanged(decimal property, ref decimal previous, string propertyName)
-        {
-            if (previous == property) { return; }
-
             previous = property;
             OnPropertyChanged(propertyName);
         }

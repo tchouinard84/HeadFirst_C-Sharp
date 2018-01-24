@@ -15,7 +15,7 @@ namespace Stopwatch.View
         {
             InitializeComponent();
 
-            viewModel = FindResource("viewModel") as StopwatchViewModel;
+            viewModel = FindResource("ViewModel") as StopwatchViewModel;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)

@@ -54,6 +54,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\BooleanNotConverter.cs" />
+    <Compile Include="ViewModel\BooleanVisibilityConverter.cs" />
     <Compile Include="ViewModel\StopwatchViewModel.cs" />
     <Compile Include="ViewModel\TimeNumberFormatConverter.cs" />
     <Compile Include="View\BasicStopwatch.xaml.cs">
