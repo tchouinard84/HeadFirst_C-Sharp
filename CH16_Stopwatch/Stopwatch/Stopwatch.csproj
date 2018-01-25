@@ -54,10 +54,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\AngleConverter.cs" />
     <Compile Include="ViewModel\BooleanNotConverter.cs" />
     <Compile Include="ViewModel\BooleanVisibilityConverter.cs" />
     <Compile Include="ViewModel\StopwatchViewModel.cs" />
     <Compile Include="ViewModel\TimeNumberFormatConverter.cs" />
+    <Compile Include="View\AnalogStopwatch.xaml.cs">
+      <DependentUpon>AnalogStopwatch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\BasicStopwatch.xaml.cs">
       <DependentUpon>BasicStopwatch.xaml</DependentUpon>
     </Compile>
@@ -73,6 +77,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\AnalogStopwatch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\BasicStopwatch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

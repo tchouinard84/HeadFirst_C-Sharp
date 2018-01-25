@@ -14,4 +14,11 @@
            x:Key="StopwatchRunningTextBlockStyle">
         <Setter Property="FontStyle" Value="Italic"/>
     </Style>
+    <Style TargetType="Button">
+        <Setter Property="Margin" Value="5"/>
+        <Setter Property="Padding" Value="12,4,12,4" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+    </Style>
 </ResourceDictionary>
