@@ -54,9 +54,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\BeeViewModel.cs" />
     <Compile Include="View\AnimatedImage.xaml.cs">
       <DependentUpon>AnimatedImage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\AnimatedImages.cs" />
+    <Compile Include="View\BeeFactory.cs" />
     <Compile Include="View\FlyingBees.xaml.cs">
       <DependentUpon>FlyingBees.xaml</DependentUpon>
     </Compile>
@@ -115,7 +118,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\" />
-    <Folder Include="ViewModel\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

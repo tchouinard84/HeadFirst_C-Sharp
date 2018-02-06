@@ -4,13 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:view="clr-namespace:AnimatedBee.View"
+        xmlns:viewmodel="clr-namespace:AnimatedBee.ViewModel"
         mc:Ignorable="d"
         Title="Flying Bees" Height="600" Width="600">
+    <Window.Resources>
+        <viewmodel:BeeViewModel x:Key="viewModel"/>
+    </Window.Resources>
     <Grid>
-        <Canvas Background="SkyBlue">
-            <view:AnimatedImage Canvas.Left="55" Canvas.Top="40" x:Name="firstBee" Width="50" Height="50"/>
-            <view:AnimatedImage Canvas.Left="80" Canvas.Top="260" x:Name="secondBee" Width="200" Height="200"/>
-            <view:AnimatedImage Canvas.Left="230" Canvas.Top="100" x:Name="thirdBee" Width="300" Height="125"/>
-        </Canvas>
+        <ItemsControl DataContext="{StaticResource viewModel}"
+                      ItemsSource="{Binding Path=Sprites}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas Background="SkyBlue"/>
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+        </ItemsControl>
     </Grid>
 </Window>
