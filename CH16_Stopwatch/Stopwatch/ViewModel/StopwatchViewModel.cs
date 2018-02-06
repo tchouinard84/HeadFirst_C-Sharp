@@ -7,7 +7,7 @@ namespace Stopwatch.ViewModel
 {
     public class StopwatchViewModel : INotifyPropertyChanged
     {
-        private readonly StopwatchModel _stopwatchModel = new StopwatchModel();
+        private static readonly StopwatchModel _stopwatchModel = new StopwatchModel();
         private readonly DispatcherTimer _timer = new DispatcherTimer();
 
         private int _lastHours;

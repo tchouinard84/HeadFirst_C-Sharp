@@ -9,33 +9,33 @@ namespace Stopwatch.View
     /// </summary>
     public partial class BasicStopwatch : UserControl
     {
-        private readonly StopwatchViewModel viewModel;
+        private readonly StopwatchViewModel _viewModel;
 
         public BasicStopwatch()
         {
             InitializeComponent();
 
-            viewModel = FindResource("ViewModel") as StopwatchViewModel;
+            _viewModel = FindResource("ViewModel") as StopwatchViewModel;
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Start();
+            _viewModel.Start();
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Stop();
+            _viewModel.Stop();
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Reset();
+            _viewModel.Reset();
         }
 
         private void LapButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Lap();
+            _viewModel.Lap();
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Stopwatch.ViewModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using System.Windows.Shapes;
 
 namespace Stopwatch.View
 {
@@ -9,33 +11,52 @@ namespace Stopwatch.View
     /// </summary>
     public partial class AnalogStopwatch : UserControl
     {
-        private readonly StopwatchViewModel viewModel;
+        private readonly StopwatchViewModel _viewModel;
 
         public AnalogStopwatch()
         {
             InitializeComponent();
 
-            viewModel = FindResource("ViewModel") as StopwatchViewModel;
+            _viewModel = FindResource("ViewModel") as StopwatchViewModel;
+            AddMarkings();
+        }
+
+        private void AddMarkings()
+        {
+            for (var i = 0; i < 360; i+=6)
+            {
+                var rectangle = new Rectangle();
+                rectangle.Width = i % 30 == 0 ? 3 : 1;
+                rectangle.Height = i % 30 == 0 ? 25 : 15;
+                rectangle.Fill = new SolidColorBrush(Colors.Black);
+                rectangle.RenderTransformOrigin = new Point(0.5, 0.5);
+
+                var transforms = new TransformGroup();
+                transforms.Children.Add(new TranslateTransform { Y = -140 });
+                transforms.Children.Add(new RotateTransform { Angle = i });
+                rectangle.RenderTransform = transforms;
+                baseGrid.Children.Add(rectangle);
+            }
         }
 
         private void StartButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Start();
+            _viewModel.Start();
         }
 
         private void StopButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Stop();
+            _viewModel.Stop();
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Reset();
+            _viewModel.Reset();
         }
 
         private void LapButton_Click(object sender, RoutedEventArgs e)
         {
-            viewModel.Lap();
+            _viewModel.Lap();
         }
     }
 }
