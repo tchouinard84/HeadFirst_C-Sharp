@@ -23,48 +23,23 @@ namespace Stopwatch.View
 
         private void AddMarkings()
         {
-            for (var i = 0.0; i < 360.0; i += 1.2)
-            {
-                var rectangle = new Rectangle
-                {
-                    Width = .5,
-                    Height = 10,
-                    Fill = new SolidColorBrush(Colors.Black),
-                    RenderTransformOrigin = new Point(0.5, 0.5)
-                };
+            AddMarkings(.5, 10, -220, 1.2);
+            AddMarkings(1, 15, -215, 6);
+            AddMarkings(3, 25, -210, 30);
+        }
 
-                var transforms = new TransformGroup();
-                transforms.Children.Add(new TranslateTransform { Y = -220 });
-                transforms.Children.Add(new RotateTransform { Angle = i });
-                rectangle.RenderTransform = transforms;
-                baseGrid.Children.Add(rectangle);
-            }
-
-            for (var i = 0; i < 360; i += 6)
+        private void AddMarkings(double width, double height, double offset, double angleBetween)
+        {
+            for (var i = 0.0; i < 360.0; i += angleBetween)
             {
                 var rectangle = new Rectangle();
-                rectangle.Width = 1;
-                rectangle.Height = 15;
+                rectangle.Width = width;
+                rectangle.Height = height;
                 rectangle.Fill = new SolidColorBrush(Colors.Black);
                 rectangle.RenderTransformOrigin = new Point(0.5, 0.5);
 
                 var transforms = new TransformGroup();
-                transforms.Children.Add(new TranslateTransform { Y = -215 });
-                transforms.Children.Add(new RotateTransform { Angle = i });
-                rectangle.RenderTransform = transforms;
-                baseGrid.Children.Add(rectangle);
-            }
-
-            for (var i = 0; i < 360; i+=30)
-            {
-                var rectangle = new Rectangle();
-                rectangle.Width = 3;
-                rectangle.Height = 25;
-                rectangle.Fill = new SolidColorBrush(Colors.Black);
-                rectangle.RenderTransformOrigin = new Point(0.5, 0.5);
-
-                var transforms = new TransformGroup();
-                transforms.Children.Add(new TranslateTransform { Y = -210 });
+                transforms.Children.Add(new TranslateTransform { Y = offset });
                 transforms.Children.Add(new RotateTransform { Angle = i });
                 rectangle.RenderTransform = transforms;
                 baseGrid.Children.Add(rectangle);
