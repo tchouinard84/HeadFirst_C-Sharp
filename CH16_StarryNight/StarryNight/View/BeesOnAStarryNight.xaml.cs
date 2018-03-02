@@ -1,4 +1,4 @@
-﻿using System;
+﻿using StarryNight.ViewModel;
 using System.Windows;
 
 namespace StarryNight.View
@@ -8,14 +8,18 @@ namespace StarryNight.View
     /// </summary>
     public partial class BeesOnAStarryNight : Window
     {
+        private readonly BeeStarViewModel _viewModel;
+
         public BeesOnAStarryNight()
         {
             InitializeComponent();
+
+            _viewModel = FindResource("viewModel") as BeeStarViewModel;
         }
 
         private void SizeChangedHandler(object sender, SizeChangedEventArgs e)
         {
-            throw new NotImplementedException();
+            _viewModel.PlayAreaSize = new Size(e.NewSize.Width, e.NewSize.Height);
         }
     }
 }
