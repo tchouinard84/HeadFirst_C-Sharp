@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Model\Bee.cs" />
+    <Compile Include="Model\BeeMovedEventArgs.cs" />
+    <Compile Include="Model\Star.cs" />
+    <Compile Include="Model\StarChangedEventArgs.cs" />
     <Compile Include="ViewModel\BeeStarViewModel.cs" />
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -110,9 +114,7 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Images\Bee animation 1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
